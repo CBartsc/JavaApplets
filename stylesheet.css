@@ -5,7 +5,7 @@ body {
 }
 
 header, nav, section, article, footer {
-	border: 1px solid #EEE;
+	border: 1px solid grey;
 	margin: 5px;
 	padding: 8px;
 }
@@ -13,6 +13,9 @@ header, nav, section, article, footer {
 nav ul {margin:0; padding:0;}
 nav ul li {display:inline; margin:5px;}
 
-object .javaApp {
-	margin: auto;
+.javaApp {margin: auto;}
+
+.container {
+	border: 1px solid grey;
+	padding: 0;
 }
