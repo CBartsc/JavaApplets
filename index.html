@@ -9,17 +9,43 @@
 		http://api.jquery.com/
 		jQuery tutorial
 		http://www.w3schools.com/jquery/ -->
+		<script>
+			$(document).ready(function(){
+				$("#applet1").hide();
+				$("#applet2").hide();
+
+				$("#viewApplet1").click(function() {
+					$("article").hide("fast");
+					$("#applet1").show("fast");
+				});
+				$("#viewApplet2").click(function() {
+					$("article").hide("fast");
+					$("#applet2").show("fast");
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<header>
 			<h1>Java Applets</h1>
 		</header>
-		<nav></nav>
+		<nav>
+			<ul>
+				<li id="viewApplet1">GPA Calculator</li>
+				<li id="viewApplet2">Applet 2</li>
+			</ul>
+		</nav>
 		<section>
-			<article>
-				<h1>Java applet 1</h1>
+			<article id="getStarted">
+				<h1>Click on an applet above to get started!</h1>
+			</article>
+			<article id="applet1">
+				<h1>GPA Calculator</h1>
 				<object class="javaApp" codetype="application/java" classid="java:gpaCalculator.class"
 				archive="javaApplet/GPACalc.jar" height="300" width="400"></object>
+			</article>
+			<article id="applet2">
+				<h1>Applet 2</h1>
 			</article>
 		</section>
 	</body>
