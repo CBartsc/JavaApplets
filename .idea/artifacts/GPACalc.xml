@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="GPACalc">
+    <output-path>$PROJECT_DIR$/out/artifacts/GPACalc</output-path>
+    <root id="archive" name="GPACalc.jar">
+      <element id="module-output" name="GPACalc" />
+    </root>
+  </artifact>
+</component>

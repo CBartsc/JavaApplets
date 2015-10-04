@@ -11,6 +11,9 @@ header, nav, section, footer {
 }
 
 nav ul {margin:0; padding:0;}
-nav ul li {display:inline; margin:5px;}
+nav ul li {display:inline; margin:10px;}
 
-.javaApp {margin: auto;}
+.javaApp {
+	margin: auto;
+	background: #EEE;
+}
