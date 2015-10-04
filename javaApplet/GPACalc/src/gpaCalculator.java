@@ -17,41 +17,8 @@ import java.util.Scanner;
 
 public class gpaCalculator extends Applet implements ActionListener {
 
-    private Scanner in = new Scanner(System.in);
-    private Scanner user = new Scanner(System.in);
-
-    // Constructor
-    public gpaCalculator() {}
-
     public void work() {
-        boolean loop = true;
-        String userInput;
-        double total = 0;
-        double average;
-        double gpa;
-        int gradeAmt;
 
-        while (loop) {
-            System.out.println("How many grades to average?");
-            gradeAmt = in.nextInt();
-
-            for (int i = 1; i <= gradeAmt; i++) {
-                System.out.println("Enter grade " + i + ":");
-                total += in.nextDouble();
-            }
-
-            average = total / gradeAmt;
-            gpa = 4 * average / 100;
-
-            System.out.println("\nAverage = " + String.format("%.4g%n", average));
-            System.out.println("GPA = " + String.format("%.3g%n", gpa));
-
-            System.out.println("\nAgain?");
-            userInput = user.nextLine();
-
-            if (!userInput.equals("yes")) loop = false;
-        }
-        System.out.println("\nDone");
     }
 
     @Override
