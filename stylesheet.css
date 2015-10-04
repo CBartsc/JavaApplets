@@ -14,8 +14,3 @@ nav ul {margin:0; padding:0;}
 nav ul li {display:inline; margin:5px;}
 
 .javaApp {margin: auto;}
-
-.container {
-	border: 1px solid grey;
-	padding: 0;
-}
