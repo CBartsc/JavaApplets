@@ -4,7 +4,7 @@ body {
 	font-family: Verdana, sans-serif;
 }
 
-header, nav, section, article, footer {
+header, nav, section, footer {
 	border: 1px solid grey;
 	margin: 5px;
 	padding: 8px;
