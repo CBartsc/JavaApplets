@@ -1,7 +1,7 @@
 import javax.swing.*;
-import java.applet.Applet;
+import java.awt.*;
 import java.awt.event.*;
-import java.util.Scanner;
+import java.applet.*;
 
 /*
 * Thread tutorial
@@ -17,24 +17,53 @@ import java.util.Scanner;
 
 public class gpaCalculator extends Applet implements ActionListener {
 
-    public void work() {
+    Label label = new Label("GPA Calculator");
+    TextArea output = new TextArea();
+    TextField input = new TextField(5);
+    Button enter = new Button("Enter");
 
+    public gpaCalculator() {
+        GroupLayout layout = new GroupLayout(this);
+        setLayout(layout);
+
+        layout.setAutoCreateGaps(true);
+        layout.setAutoCreateContainerGaps(true);
+
+        layout.setHorizontalGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                .addComponent(label)
+                                .addComponent(output)
+                                .addGroup(layout.createSequentialGroup()
+                                        .addComponent(input)
+                                        .addComponent(enter)))
+        );
+        layout.setVerticalGroup(layout.createSequentialGroup()
+                        .addComponent(label)
+                        .addComponent(output)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(input)
+                                .addComponent(enter))
+        );
+
+        output.setEditable(false);
+        enter.addActionListener(this);
+        input.requestFocus();
+    }
+
+    public void print(String str) {
+        output.append(str);
     }
 
     @Override
     public void init() {
-        try {
-            SwingUtilities.invokeAndWait(new Runnable() {
-                public void run() {
-                    gpaCalculator calc = new gpaCalculator();
-                    calc.work();
-                }
-            });
-        } catch (Exception e) {
-            System.err.println("program didn't complete successfully");
-        }
+        print("How many grades to average?");
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {}
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == enter) {
+            output.append(input.getText() + "\n");
+            input.setText("");
+        }
+    }
 }
