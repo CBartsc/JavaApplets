@@ -16,10 +16,12 @@
 
 				$("#viewApplet1").click(function() {
 					$("article").hide("fast");
+					$("#getStarted").hide("fast");
 					$("#applet1").show("fast");
 				});
 				$("#viewApplet2").click(function() {
 					$("article").hide("fast");
+					$("#getStarted").hide("fast");
 					$("#applet2").show("fast");
 				});
 			});
@@ -36,9 +38,7 @@
 			</ul>
 		</nav>
 		<section>
-			<article id="getStarted">
-				<h1>Click on an applet above to get started!</h1>
-			</article>
+			<h1 id="getStarted">Click on an applet above to get started!</h1>
 			<article id="applet1">
 				<h1>GPA Calculator</h1>
 				<object class="javaApp" codetype="application/java" classid="java:gpaCalculator.class"
