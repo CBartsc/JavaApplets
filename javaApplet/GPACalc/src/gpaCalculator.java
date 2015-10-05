@@ -17,10 +17,17 @@ import java.applet.Applet;
 
 public class gpaCalculator extends Applet implements ActionListener {
 
-    Label label = new Label("GPA Calculator");
-    TextArea output = new TextArea();
+    Label titleLabel = new Label("GPA Calculator");
+    Label totalLabel = new Label("Total = 0");
+    Label averageLabel = new Label("Average = 0");
+    Label gpaLabel = new Label("GPA = 0");
+    Label promptLabel = new Label("Enter a number to add:");
     TextField input = new TextField(5);
     Button enter = new Button("Enter");
+    
+    int ammount = 0;
+    String toAdd;
+    double total = 0, average = 0, gpa = 0;
 
     public gpaCalculator() {
         GroupLayout layout = new GroupLayout(this);
@@ -31,26 +38,30 @@ public class gpaCalculator extends Applet implements ActionListener {
 
         layout.setHorizontalGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                .addComponent(label)
-                                .addComponent(output)
+                                .addComponent(titleLabel)
+                                .addComponent(promptLabel)
+                                .addGroup(layout.createSequentialGroup()
+                                        .addComponent(totalLabel)
+                                        .addComponent(averageLabel)
+                                        .addComponent(gpaLabel))
                                 .addGroup(layout.createSequentialGroup()
                                         .addComponent(input)
                                         .addComponent(enter)))
         );
         layout.setVerticalGroup(layout.createSequentialGroup()
-                        .addComponent(label)
-                        .addComponent(output)
+                        .addComponent(titleLabel)
+                        .addComponent(promptLabel)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(totalLabel)
+                                .addComponent(averageLabel)
+                                .addComponent(gpaLabel))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                 .addComponent(input)
                                 .addComponent(enter))
         );
 
-        output.setEditable(false);
+        //output.setEditable(false);
         enter.addActionListener(this);
-    }
-
-    public void print(String str) {
-        output.append(str + "\n");
     }
 
     @Override
@@ -61,8 +72,17 @@ public class gpaCalculator extends Applet implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == enter) {
-            print(input.getText());
+            toAdd = input.getText();
             input.setText("");
+            total += Double.parseDouble(toAdd);
+            ammount++;
+            
+            average = total / ammount;
+            gpa = 4 * average / 100;
+            
+            totalLabel.setText("Total = " + total);
+            averageLabel.setText("Average = " + String.format("%.4g", average));
+            gpaLabel.setText("GPA = " + String.format("%.3g", gpa));
         }
     }
 }
