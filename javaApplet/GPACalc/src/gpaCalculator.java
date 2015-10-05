@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.applet.*;
+import java.applet.Applet;
 
 /*
 * Thread tutorial
@@ -47,22 +47,21 @@ public class gpaCalculator extends Applet implements ActionListener {
 
         output.setEditable(false);
         enter.addActionListener(this);
-        input.requestFocus();
     }
 
     public void print(String str) {
-        output.append(str);
+        output.append(str + "\n");
     }
 
     @Override
     public void init() {
-        print("How many grades to average?");
+        input.requestFocus();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == enter) {
-            output.append(input.getText() + "\n");
+            print(input.getText());
             input.setText("");
         }
     }
