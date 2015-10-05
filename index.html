@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 	<head>
 		<title>Java applets</title>
 		<!-- http://www.simplehtmlguide.com/javaapplets.php -->
@@ -15,13 +15,13 @@
 				$("#applet2").hide();
 
 				$("#viewApplet1").click(function() {
-					$("article").hide("fast");
 					$("#getStarted").hide("fast");
+					$("#applet2").hide("fast");
 					$("#applet1").show("fast");
 				});
 				$("#viewApplet2").click(function() {
-					$("article").hide("fast");
 					$("#getStarted").hide("fast");
+					$("#applet1").hide("fast");
 					$("#applet2").show("fast");
 				});
 			});
@@ -41,15 +41,18 @@
 			<h1 id="getStarted">Click on an applet above to get started!</h1>
 			<article id="applet1">
 				<h1>GPA Calculator</h1>
-				<object class="javaApp" codetype="application/java" archive="out/artifacts/GPACalc/GPACalc.jar"
-				code="java:GPACalculator.class" height="400" width="740"></object>
+				<object class="javaApp" type="application/x-java-applet">
+					<param name="code" value="GPACalculator" />
+					<param name="archive" value="out/artifacts/GPACalc/GPACalc.jar" />
+					Applet failed to run. No Java plug-in was found
+				</object>
 			</article>
 			<article id="applet2">
 				<h1>Applet 2</h1>
 			</article>
 		</section>
 		<section>
-			<h1>Info</h1>
+			<h1>Info </h1>
 			<p>Some educational Java applets embedded in HTML</p>
 
 			<p>Guides, tutorials, and references used:</p>
